@@ -18,6 +18,7 @@ requirements = [
     "pandas",
     "genetools",
     "multiclass-metrics",
+    "typing-extensions",
 ]
 
 setup_requirements = [
