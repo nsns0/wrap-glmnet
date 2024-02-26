@@ -10,7 +10,15 @@ with open("README.md") as readme_file:
 with open("CHANGELOG.md") as history_file:
     history = history_file.read()
 
-requirements = ["Click>=7.0"]
+requirements = [
+    "numpy",
+    "glmnet>=2.2.1",
+    "extendanything",
+    "scikit-learn",
+    "pandas",
+    "genetools",
+    "multiclass-metrics",
+]
 
 setup_requirements = [
     "pytest-runner",
