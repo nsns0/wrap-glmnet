@@ -59,7 +59,7 @@ jobs:
           # This path is specific to Ubuntu
           path: ~/.cache/pip
           # Look to see if there is a cache hit for the corresponding requirements file
-          key: ${{ runner.os }}-pip-${{ hashFiles('requirements_dev.txt') }}
+          key: ${{ runner.os }}-pip-${{ hashFiles('requirements_dev.txt') }}-${{ hashFiles('requirements_dev_extra.txt') }}
           restore-keys: |
             ${{ runner.os }}-pip-
             ${{ runner.os }}-
@@ -73,6 +73,7 @@ jobs:
         run: |
           python -m pip install --upgrade pip wheel
           pip install -r requirements_dev.txt
+          pip install -r requirements_dev_extra.txt
           pip install -U codecov
       - name: Lint
         run: |
@@ -112,6 +113,7 @@ jobs:
         run: |
           python -m pip install --upgrade pip wheel
           pip install -r requirements_dev.txt
+          pip install -r requirements_dev_extra.txt
       - name: make docs
         run: make docs
       - name: deploy dev docs to netlify
@@ -154,6 +156,7 @@ jobs:
         run: |
           python -m pip install --upgrade pip wheel
           pip install -r requirements_dev.txt
+          pip install -r requirements_dev_extra.txt
           pip install build
 
       - name: Build a binary wheel and a source tarball
