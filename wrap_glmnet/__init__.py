@@ -483,7 +483,7 @@ class GlmnetLogitNetWrapper(ExtendAnything, ClassifierMixin, BaseEstimator):
             self._inner._cv_override = self.internal_cv
 
             # Fill wrapper's n_splits from internal_cv
-            self.n_splits = self.internal_cv.get_n_splits()
+            self.n_splits = self.internal_cv.get_n_splits(X=X, y=y, groups=groups)
 
             # Check n_splits, then fill wrapped object's n_splits accordingly.
             if self.n_splits < 3:
